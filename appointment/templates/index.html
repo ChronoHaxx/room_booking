@@ -1,4 +1,5 @@
 {% load mathfilters %}
+{% load static %}
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
@@ -6,155 +7,157 @@
         <title>Appointment</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" type="text/css" href="{% static 'appointment/timetable.css' %}">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js">
+        </script>
+        <script type="text/javascript" src="{% static 'appointment/timetable.js' %}"></script>
     </head>
     <body>
         <a>{{ room1 }}<br></a>
         <a>{{ room2 }}<br></a>
         <a>{{ room3 }}<br></a>
-        <div>
-            <style type="text/css">
-                .tg  {border-collapse:collapse;border-spacing:0;border-color:#bbb;}
-                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#bbb;color:#594F4F;background-color:#E0FFEB;}
-                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#bbb;color:#493F3F;background-color:#9DE0AD;}
-                .tg .tg-893d{background-color:#c9ffc8;text-align:left;vertical-align:top}
-                .tg .tg-0lax{text-align:left;vertical-align:top}
-                .tg .tg-tcj5{background-color:#3166ff;border-color:inherit;text-align:left;vertical-align:top}
-            </style>
-            <table class="tg" style="undefined;table-layout: fixed; width: 438px">
-            <colgroup>
-                <col style="width: 45px">
-                <col style="width: 126px">
-                <col style="width: 122px">
-                <col style="width: 145px">
-            </colgroup>
-                <tr>
-                  <th class="tg-0lax">TIME</th>
-                  <th class="tg-0lax">Cg. Fazilawati</th>
-                  <th class="tg-0lax">Cg. A</th>
-                  <th class="tg-0lax">Bilik Kaunseling 3R</th>
-                </tr>
-                <tr>
-                  <td class="tg-0lax">7.40</td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-tcj5"></td>
-                </tr>
-                <tr>
-                  <td class="tg-893d">8.10</td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                </tr>
-                <tr>
-                  <td class="tg-0lax">8.40</td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                </tr>
-                <tr>
-                  <td class="tg-893d">9.10</td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                </tr>
-                <tr>
-                  <td class="tg-0lax">9.40</td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                </tr>
-                <tr>
-                  <td class="tg-893d">10.10</td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                </tr>
-                <tr>
-                  <td class="tg-0lax">10.40</td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                </tr>
-                <tr>
-                  <td class="tg-893d">11.10</td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                </tr>
-                <tr>
-                  <td class="tg-0lax">11.40</td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                </tr>
-                <tr>
-                  <td class="tg-893d">12.10</td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                </tr>
-                <tr>
-                  <td class="tg-0lax">12.40</td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                </tr>
-                <tr>
-                  <td class="tg-893d">13.10</td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                </tr>
-                <tr>
-                  <td class="tg-0lax">1.40</td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                </tr>
-                <tr>
-                  <td class="tg-893d">2.10</td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                </tr>
-                <tr>
-                  <td class="tg-0lax">2.40</td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                </tr>
-                <tr>
-                  <td class="tg-893d">3.10</td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                </tr>
-                <tr>
-                  <td class="tg-0lax">3.40</td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                </tr>
-                <tr>
-                  <td class="tg-893d">4.10</td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                </tr>
-                <tr>
-                  <td class="tg-0lax">4.40</td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                  <td class="tg-0lax"></td>
-                </tr>
-                <tr>
-                  <td class="tg-893d">5.10</td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                  <td class="tg-893d"></td>
-                </tr>
+        <div class="timetable">
+            <table class="button-options">
+              <tr>
+                <th></th>
+                <th id="addFilm">Add Film</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
             </table>
-        </div>
+            <div class="layoutdesign">
+              <div class="row">
+                <div></div>
+                <div>00:00</div>
+                <div>01:00</div>
+                <div>02:00</div>
+                <div>03:00</div>
+                <div>04:00</div>
+                <div>05:00</div>
+                <div>06:00</div>
+                <div>07:00</div>
+                <div>08:00</div>
+                <div>09:00</div>
+                <div>10:00</div>
+                <div>11:00</div>
+                <div>12:00</div>
+                <div>13:00</div>
+                <div>14:00</div>
+                <div>15:00</div>
+                <div>16:00</div>
+                <div>17:00</div>
+                <div>18:00</div>
+                <div>19:00</div>
+                <div>20:00</div>
+                <div>21:00</div>
+                <div>22:00</div>
+                <div>23:00</div>
+                <div>24:00</div>
+          
+              </div>
+              <div class="row">
+                <div>Screen 1</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+              <div class="row">
+                <div>Screen 2</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+          
+              <div class="row">
+                <div>Screen 3</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+             <span class="film" style="top:10vh;left:calc(10vw + 225px); width:180px" data-start="02:15">Deadpool -108mins</span>
+            </div>
+            <form>
+              <input id="timetableFilm" type="text" placeholder="Enter Title" />
+              <input id="timetableDuration" type="text" placeholder="Enter Duration (mins)" />
+              <input id="timetableStart" type="text" placeholder="Start Time (HH:MM)" />
+              <select id="timetableScreen">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </form>
+          
+          </div>
+          
     </body>
 </html>
