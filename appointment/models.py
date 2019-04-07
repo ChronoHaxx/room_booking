@@ -25,32 +25,25 @@ class User(models.Model):
         return self.name
 
 
-class room1(models.Model):
+class appointment(models.Model):
     objective = models.CharField(max_length=80)
     start_time = models.DateTimeField(unique=True)
     end_time = models.DateTimeField(unique=True)
     client = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.objective
-
-
-class room2(models.Model):
-    objective = models.CharField(max_length=80)
-    start_time = models.DateTimeField(unique=True)
-    end_time = models.DateTimeField(unique=True)
-    client = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.objective
-
-
-class room3(models.Model):
-    objective = models.CharField(max_length=80)
-    start_time = models.DateTimeField(unique=True)
-    end_time = models.DateTimeField(unique=True)
-    client = models.ForeignKey(User, on_delete=models.CASCADE)
+    FAZIL = '1'
+    AINUL = '2'
+    BILIK = '3'
+    ROOM_CHOICES =(
+        (FAZIL, 'Cg. Fazilawati'),
+        (AINUL, 'Cg Ainul'),
+        (BILIK, 'Bilik 3R'),
+    )
+    rooom = models.CharField(
+    max_length=1,
+    choices=ROOM_CHOICES,
+    default=BILIK,
+    )
 
     def __str__(self):
         return self.objective
-

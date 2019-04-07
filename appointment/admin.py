@@ -2,6 +2,6 @@ from django.contrib import admin
 from . import models
 
 admin.site.register(models.User)
-admin.site.register(models.room1)
-admin.site.register(models.room2)
-admin.site.register(models.room3)
+admin.site.register(models.appointment)
+
+    

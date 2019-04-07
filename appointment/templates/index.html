@@ -8,6 +8,11 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="{% static 'appointment/timetable.css' %}">
+        <script type="text/javascript">
+
+          var appointments = '{{ appointments }}';
+          var test1 = '{{ appointments}}';
+          </script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js">
         </script>
         <script type="text/javascript" src="{% static 'appointment/timetable.js' %}"></script>
@@ -144,19 +149,19 @@
                 <div></div>
                 <div></div>
               </div>
-             <span class="film" style="top:10vh;left:calc(10vw + 225px); width:180px" data-start="02:15">Deadpool -108mins</span>
+             
             </div>
+            {% for appointment in appointments  %}
+            ## LAST WE ARE HERE!! STILL SOLVING WAY TO GET DURATION IN MINUTES!!
+            {%  %}
             <form>
-              <input id="timetableFilm" type="text" placeholder="Enter Title" />
-              <input id="timetableDuration" type="text" placeholder="Enter Duration (mins)" />
-              <input id="timetableStart" type="text" placeholder="Start Time (HH:MM)" />
-              <select id="timetableScreen">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-              </select>
+              <input id="timetableFilm" type="hidden" placeholder="Enter Title" value='{{ appointment.end_time |sub:appointment.start_time}}' />
+              <input id="timetableDuration" type="hidden" placeholder="Enter Duration (mins)" value='{{ appointment.end_time |sub:appointment.start_time}}' />
+              <input id="timetableStart" type="hidden" placeholder="Start Time (HH:MM)" value='03:03'/>
+              <!-- <input id="timetableStart" type="hidden" placeholder="Start Time (HH:MM)" value='{{ appointment.start_time |date:"H:i" }}'/> -->
+              <input id="timetableScreen" type="hidden" value="2" >
             </form>
-          
+            {% endfor %}
           </div>
           
     </body>

@@ -20,7 +20,7 @@ $(document).ready(function() {
       $(this).toggleClass("activeFilm");
       $('#deleteFilm').show();
     });
-   
-   
+    console.log(appointments)
+    console.log(test1)
   });
   
