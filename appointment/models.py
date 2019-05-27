@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.text import slugify
+from django.urls import reverse
 
 class User(models.Model):
     name = models.CharField(max_length=60)
@@ -43,7 +45,7 @@ class appointment(models.Model):
     max_length=1,
     choices=ROOM_CHOICES,
     default=BILIK,
-    )
+    )   
 
     def __str__(self):
         return self.objective

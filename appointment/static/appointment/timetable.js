@@ -1,9 +1,11 @@
 $(document).ready(function() {
 
-    
   for(var k in appointments) {
     console.log(k, appointments[k]);
     console.log(appointments[k].fields.start_time.split(''));
+    //assigning primary key to link to detail view
+    var pk = appointments[k].pk
+    console.log(pk)
     //finding hour start from json parsed date time
     var hour_start = []
     hour_start.push(appointments[k].fields.start_time.split('')[11]);
@@ -56,7 +58,6 @@ $(document).ready(function() {
     console.log(rooom)
     console.log(durration)
 
-
     var name = appointments[k].fields.objective;
     var duration = durration * (5 / 3); /*must be in mins*/
     var dur = durration;
@@ -69,13 +70,9 @@ $(document).ready(function() {
     var minute = parseInt(res[1]) / 60 * 100;
     var t = hour + parseInt(minute);
     var screen = parseInt(rooom) * 10;
-    $('.timetable .layoutdesign').append("<span class='film' style='top:" + screen + "vh;left:calc(10vw + " + t + "px); width:" + duration + "px' data-start='" + startTime + "'>" + name  + " | " + hour24_start + " until " + hour24_end + " | " + " -"+dur+"mins " + "</span>");
+    $('.timetable .layoutdesign').append("<span onclick="+"location='"+ window.location.href + "/" + pk + "'" + 
+    " class='film' style='top:" + screen + "vh;left:calc(10vw + " + t + "px); width:" + duration + "px' data-start='" + startTime + "'>" + name  + " | " + hour24_start + " until " + hour24_end + " | " + " "+dur+"mins " + "</span>");
    }
 
-  
-    $('.layoutdesign').click( ".filmx", function() {
-      $(this).toggleClass("activeFilm");
-      $('#deleteFilm').show();
-    });
   });
   

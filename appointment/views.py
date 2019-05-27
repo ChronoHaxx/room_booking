@@ -2,6 +2,9 @@ from django.shortcuts import render
 from .models import appointment
 from django.core import serializers
 
+from django.utils import timezone
+from django.views.generic.detail import DetailView
+
 def index(request,year,month,day):
     #appointments = appointment.objects.all().filter(start_time__year=year, 
     #                                                start_time__month=month, 
@@ -27,3 +30,13 @@ def index(request,year,month,day):
                                                 #"durations" : durations,
                                                 })
 
+#detail view generic
+
+class AppointmentDetailView(DetailView):
+
+    model = appointment
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
