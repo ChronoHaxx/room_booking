@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'appointment',
     #template_filters
     'mathfilters',
+    #external modules
+    'tempus_dominus',
 ]
 
 MIDDLEWARE = [
