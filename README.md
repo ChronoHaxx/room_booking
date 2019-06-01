@@ -9,8 +9,10 @@ To do :
 
 -UX (User Experience)
   - [ ] Add widget to choose day, forward and back a day 
-  - [ ] adjust the time to be on working hours 
-  - [ ] appointment added needed to get approval of Administrator to be displayed on table 
+    - still buggy, date doesnt refreshed with page refresh
+  - [X] adjust the time to be on working hours 
+  - [ ] appointment added needed to get approval of Administrator to be displayed on table
+  - [ ] add current date display 
 
 -Forms validation of new appointment
   - [ ] so it doesnt allow user to pick date that already booked 

@@ -23,21 +23,60 @@
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--activate the datepicker-->
     <script>
     $( function() {
       $( "#datepicker" ).datepicker();
     } );
     </script>
-
+    <!--redirect the date inserted to the url and the three buttons-->
     <script>
         $(document).ready(function() {
+          //getting current date
+          var today = new Date();
+          var dd = String(today.getDate()).padStart(2, '0');
+          var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+          var yyyy = today.getFullYear();
+          today = mm + '/' + dd + '/' + yyyy;
+
           $('#querydate').submit( function() {             
                goUrl = 'http://' + window.location.hostname + ':8000' + '/appointment/view/' + $('#datepicker').val();
                location.href = goUrl;
                return false;  // Prevent the default form behaviour
           });
+
+          $('#today').submit( function() {                        
+            goUrl = 'http://' + window.location.hostname + ':8000' + '/appointment/view/' + today;
+            location.href = goUrl;
+            return false;  // Prevent the default form behaviour
+          });
+
+          $('#before').submit( function() {
+            var today = new Date();
+            today.setDate(today.getDate()-1);
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+            today = mm + '/' + dd + '/' + yyyy; 
+            goUrl = 'http://' + window.location.hostname + ':8000' + '/appointment/view/' + today;
+            location.href = goUrl;
+            return false;  // Prevent the default form behaviour
+          });
+
+          $('#after').submit( function() {
+            var today = new Date();
+            today.setDate(today.getDate()+1);
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+            today = mm + '/' + dd + '/' + yyyy; 
+            goUrl = 'http://' + window.location.hostname + ':8000' + '/appointment/view/' + today;
+            location.href = goUrl;
+            return false;  // Prevent the default form behaviour
+          });
      });
     </script>
+
 </head>
 <body>
     <div class="timetable">
@@ -45,28 +84,22 @@
             <tr>
                 <th></th>
                 <th id="addFilm"><a href="{% url 'appointment-new' %}">Add Appointment</a></th>
+                <th><h5>Date : </h5></th>                
                 <th>
                     <form id="querydate" >
-                        <p>Date: <input type="text" id="datepicker"></p>
+                        <p>Go to date: <input type="text" id="datepicker"></p>
                         <input type="submit" value="Go">
                     </form>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                </th>                
+                <th><form id="before"><input type="submit" value="Go a day before"></form></th>
+                <th><form id="today"><input type="submit" value="Go to Today"></form></th>
+                <th><form id="after"><input type="submit" value="Go a day after"></form></th>
                 <th></th>
             </tr>
         </table>
         <div class="layoutdesign">
           <div class="row">
                 <div></div>
-                <div>00:00</div>
-                <div>01:00</div>
-                <div>02:00</div>
-                <div>03:00</div>
-                <div>04:00</div>
-                <div>05:00</div>
-                <div>06:00</div>
                 <div>07:00</div>
                 <div>08:00</div>
                 <div>09:00</div>
@@ -107,13 +140,6 @@
                 <div></div>
                 <div></div>
                 <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
           </div>
           <div class="row">
                 <div>Cg. Ainul</div>
@@ -135,23 +161,9 @@
                 <div></div>
                 <div></div>
                 <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
           </div>
           <div class="row">
                 <div>BILIK 3R</div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
