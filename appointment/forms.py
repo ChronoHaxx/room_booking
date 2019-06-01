@@ -12,7 +12,7 @@ utc = pytz.UTC
 
 class AppointmentForm(forms.ModelForm):
 
-    def clean_end_time(self):
+    def clean(self):
         cleaned_data = self.cleaned_data # individual field's clean methods have already been called
         data = cleaned_data.get('end_time')
         data2 = cleaned_data.get('start_time')
@@ -25,22 +25,15 @@ class AppointmentForm(forms.ModelForm):
         if data < data2 :
             raise ValidationError(_('Invalid date - end time before start time'))
 
-        # Remember to always return the cleaned data.
-        return data
-
-    def clean_start_time(self):
-        data = self.cleaned_data['start_time']
-        
         # Check if a date is not in the past. 
-        if data < datetime.datetime.now(pytz.utc):
+        if data2 < datetime.datetime.now(pytz.utc):
             raise ValidationError(_('Invalid date - start time in past'))
 
         # Check if a date is in the allowed range (+2 weeks from today).
-        if data > datetime.datetime.now(pytz.utc) + datetime.timedelta(weeks=2):
+        if data2 > datetime.datetime.now(pytz.utc) + datetime.timedelta(weeks=2):
             raise ValidationError(_('Invalid date - start time more than 2 weeks ahead'))
-
         # Remember to always return the cleaned data.
-        return data
+        return cleaned_data
 
     class Meta:
         model = Appointment

@@ -3,12 +3,10 @@ import datetime
 from django.shortcuts import render, redirect
 from .models import Appointment
 from django.core import serializers
-
 from django.utils import timezone
 from django.views.generic.detail import DetailView
-from django import forms, views
-from .forms import AppointmentForm, MyForm, QuerydateForm
-from django.utils import timezone
+from django import forms, urls
+from .forms import AppointmentForm
 
 #find current date
 year = datetime.date.today().year
@@ -27,16 +25,7 @@ def index(request, year=year, month=month, day=day):
                                                                 'client',
                                                                 'rooom'))    
 
-    #to get duration in minute
-    #durations = []
-    #for x in appointments :
-    #    duration = x.end_time - x.start_time
-    #    duration_array = str(duration).split(':')
-    #    duration_minute = (int(duration_array[0]) * 60) + int(duration_array[1])
-    #    durations.append(duration_minute)
-
     return render(request,'index.html',context={"appointments" : appointments,
-                                                #"durations" : durations,
                                                 })
 
 def table(request, year, month, day):
@@ -50,20 +39,11 @@ def table(request, year, month, day):
                                                                 'client',
                                                                 'rooom'))    
 
-    #to get duration in minute
-    #durations = []
-    #for x in appointments :
-    #    duration = x.end_time - x.start_time
-    #    duration_array = str(duration).split(':')
-    #    duration_minute = (int(duration_array[0]) * 60) + int(duration_array[1])
-    #    durations.append(duration_minute)
-
     return render(request,'table.html',context={"appointments" : appointments,
-                                                #"durations" : durations,
                                                 })
 
-#detail view generic
 
+#detail view generic
 class AppointmentDetailView(DetailView):
 
     model = Appointment
@@ -74,17 +54,17 @@ class AppointmentDetailView(DetailView):
         return context
 
 #forms for appointment
-def add_model(request):
- 
+def appointment_new(request):
     if request.method == "POST":
         form = AppointmentForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('/')
- 
+            appointment = form.save(commit=False)
+            appointment.User = request.user
+            appointment.save()
+            return redirect(urls.reverse(index))
     else:
- 
         form = AppointmentForm()
- 
-        return render(request, "form.html", {'form': form})
+    return render(request, "form.html", {'form': form})
 
+def test(request):
+    return render(request, "test.html")

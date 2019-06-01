@@ -15,7 +15,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <form method="post" action=".">
+          <form method="post" action="{% url 'appointment-new' %}">
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="OK">
