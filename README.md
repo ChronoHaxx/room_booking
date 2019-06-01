@@ -12,7 +12,7 @@ To do :
     - still buggy, date doesnt refreshed with page refresh
   - [X] adjust the time to be on working hours 
   - [ ] appointment added needed to get approval of Administrator to be displayed on table
-  - [ ] add current date display 
+  - [X] add current date display 
 
 -Forms validation of new appointment
   - [ ] so it doesnt allow user to pick date that already booked 

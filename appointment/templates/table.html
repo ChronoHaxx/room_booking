@@ -84,7 +84,21 @@
             <tr>
                 <th></th>
                 <th id="addFilm"><a href="{% url 'appointment-new' %}">Add Appointment</a></th>
-                <th><h5>Date : </h5></th>                
+                <th>
+                  <h5 id="date_display"> </h5></th> 
+                  <script>
+                      var url = "{{ request.path }} ";
+                      url = url.split('/');
+                      var mm = url[3];
+                      var dd = url[4];
+                      var yyyy = url[5];
+                      var today = mm + '/' + dd + '/' + yyyy;
+                      today = new Date(today).toString()
+                      today_chr = today.split(' ')
+                      today = today_chr[0] + ' ' +  today_chr[1] + ' ' + today_chr[2] + ' ' + today_chr[3] 
+                      console.log(today);
+                      document.getElementById("date_display").innerHTML = "Date : " + today;
+                  </script>               
                 <th>
                     <form id="querydate" >
                         <p>Go to date: <input type="text" id="datepicker"></p>
