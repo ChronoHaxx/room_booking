@@ -1,39 +1,64 @@
 {% load mathfilters %}
 {% load index %}}
 {% load static %}
-<!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Appointment</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="{% static 'appointment/timetable.css' %}">
-        <script type="text/javascript">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Appointment</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'appointment/timetable.css' %}">
+    <script type="text/javascript">
 
-          var appointments = '{{ appointments }}';
-          appointments = JSON.parse(appointments.replace(/&quot;/g,'"'));
-          </script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js">
-        </script>
-        <script type="text/javascript" src="{% static 'appointment/timetable.js' %}"></script>
-    </head>
-    <body>
-        <div class="timetable">
-            <table class="button-options">
-              <tr>
+      var appointments = '{{ appointments }}';
+      appointments = JSON.parse(appointments.replace(/&quot;/g,'"'));
+      </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js">
+    </script>
+    <script type="text/javascript" src="{% static 'appointment/timetable.js' %}"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $( function() {
+      $( "#datepicker" ).datepicker();
+    } );
+    </script>
+
+    <script>
+        $(document).ready(function() {
+          $('#querydate').submit( function() {             
+               goUrl = 'http://' + window.location.hostname + ':8000' + '/appointment/view/' + $('#datepicker').val();
+               location.href = goUrl;
+               return false;  // Prevent the default form behaviour
+          });
+     });
+    </script>
+</head>
+<body>
+    <div class="timetable">
+        <table class="button-options">
+            <tr>
                 <th></th>
                 <th id="addFilm"><a href="{% url 'appointment-new' %}">Add Appointment</a></th>
+                <th>
+                    <form id="querydate" >
+                        <p>Date: <input type="text" id="datepicker"></p>
+                        <input type="submit" value="Go">
+                    </form>
                 <th></th>
                 <th></th>
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
-              </tr>
-            </table>
-            <div class="layoutdesign">
-              <div class="row">
+            </tr>
+        </table>
+        <div class="layoutdesign">
+          <div class="row">
                 <div></div>
                 <div>00:00</div>
                 <div>01:00</div>
@@ -61,8 +86,8 @@
                 <div>23:00</div>
                 <div>24:00</div>
           
-              </div>
-              <div class="row">
+          </div>
+          <div class="row">
                 <div>Cg. Fazilawati</div>
                 <div></div>
                 <div></div>
@@ -89,8 +114,8 @@
                 <div></div>
                 <div></div>
                 <div></div>
-              </div>
-              <div class="row">
+          </div>
+          <div class="row">
                 <div>Cg. Ainul</div>
                 <div></div>
                 <div></div>
@@ -117,9 +142,8 @@
                 <div></div>
                 <div></div>
                 <div></div>
-              </div>
-          
-              <div class="row">
+          </div>
+          <div class="row">
                 <div>BILIK 3R</div>
                 <div></div>
                 <div></div>
@@ -146,11 +170,8 @@
                 <div></div>
                 <div></div>
                 <div></div>
-              </div>
-            
-            </div>
-
           </div>
-
-    </body>
+        </div>
+    </div>
+</body>
 </html>

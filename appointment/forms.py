@@ -90,7 +90,3 @@ class MyForm(forms.Form):
             }
         ),
     )
-
-
-class QuerydateForm(forms.Form):
-    date = forms.DateField()
