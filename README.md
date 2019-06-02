@@ -8,8 +8,7 @@ Base project : https://github.com/ChronoHaxx/counselour-web/blob/master
 To do :
 
 -UX (User Experience)
-  - [ ] Add widget to choose day, forward and back a day 
-    - still buggy, date doesnt refreshed with page refresh
+  - [X] Add widget to choose day, forward and back a day
   - [X] adjust the time to be on working hours 
   - [ ] appointment added needed to get approval of Administrator to be displayed on table
   - [X] add current date display 

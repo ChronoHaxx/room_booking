@@ -52,10 +52,18 @@
           });
 
           $('#before').submit( function() {
-            var today = new Date();
+            //reading the url and isolating the date part
+            var url = "{{ request.path }} ";
+            url = url.split('/');
+            var mm = url[3];
+            var dd = url[4];
+            var yyyy = url[5];
+            //parsing new date base on url data
+            var today = new Date(yyyy, mm, dd);
+            //decreasing date by 1
             today.setDate(today.getDate()-1);
             var dd = String(today.getDate()).padStart(2, '0');
-            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var mm = String(today.getMonth()).padStart(2, '0'); //January is 0!
             var yyyy = today.getFullYear();
             today = mm + '/' + dd + '/' + yyyy; 
             goUrl = 'http://' + window.location.hostname + ':8000' + '/appointment/view/' + today;
@@ -64,10 +72,18 @@
           });
 
           $('#after').submit( function() {
-            var today = new Date();
+            //reading the url and isolating the date part
+            var url = "{{ request.path }} ";
+            url = url.split('/');
+            var mm = url[3];
+            var dd = url[4];
+            var yyyy = url[5];
+            //parsing new date base on url data
+            var today = new Date(yyyy, mm, dd);
+            //increasing date by 1
             today.setDate(today.getDate()+1);
             var dd = String(today.getDate()).padStart(2, '0');
-            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var mm = String(today.getMonth()).padStart(2, '0'); //January is 0!
             var yyyy = today.getFullYear();
             today = mm + '/' + dd + '/' + yyyy; 
             goUrl = 'http://' + window.location.hostname + ':8000' + '/appointment/view/' + today;
@@ -87,13 +103,16 @@
                 <th>
                   <h5 id="date_display"> </h5></th> 
                   <script>
+                      //reading the url and isolating the date part
                       var url = "{{ request.path }} ";
                       url = url.split('/');
                       var mm = url[3];
                       var dd = url[4];
                       var yyyy = url[5];
                       var today = mm + '/' + dd + '/' + yyyy;
+                      //parsing new date base on short date format
                       today = new Date(today).toString()
+                      //removing unnecessary detail such as GMT+8
                       today_chr = today.split(' ')
                       today = today_chr[0] + ' ' +  today_chr[1] + ' ' + today_chr[2] + ' ' + today_chr[3] 
                       console.log(today);
@@ -107,7 +126,7 @@
                 </th>                
                 <th><form id="before"><input type="submit" value="Go a day before"></form></th>
                 <th><form id="today"><input type="submit" value="Go to Today"></form></th>
-                <th><form id="after"><input type="submit" value="Go a day after"></form></th>
+                <th><form id="after"><input type="submit" value="Go a day after "></form></th>
                 <th></th>
             </tr>
         </table>
