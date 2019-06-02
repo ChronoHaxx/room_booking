@@ -9,16 +9,19 @@ To do :
 
 -UX (User Experience)
   - [X] Add widget to choose day, forward and back a day
-  - [X] adjust the time to be on working hours 
+  - [ ] adjust the time to be on working hours 
+    -cannot be done due to js script copied is coded exclusively for 24 hour measurement
   - [ ] appointment added needed to get approval of Administrator to be displayed on table
+    - this includes some form of inbox and outbox for request etc
   - [X] add current date display 
 
 -Forms validation of new appointment
-  - [ ] so it doesnt allow user to pick date that already booked 
+  - [ ] so it doesnt allow user to pick date that already booked and approved
 
 -User auth
   - [ ] groups of students, teachers, staff 
   - [ ] this includes the forms to require high priveleged group to book 
+  - [ ] use profiles.
 
 -Design
   - [ ] retain original table view, too lazy to redesign.

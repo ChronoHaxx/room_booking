@@ -63,7 +63,7 @@
             //decreasing date by 1
             today.setDate(today.getDate()-1);
             var dd = String(today.getDate()).padStart(2, '0');
-            var mm = String(today.getMonth()).padStart(2, '0'); //January is 0!
+            var mm = String(today.getMonth() ).padStart(2, '0'); //January is 0!
             var yyyy = today.getFullYear();
             today = mm + '/' + dd + '/' + yyyy; 
             goUrl = 'http://' + window.location.hostname + ':8000' + '/appointment/view/' + today;
@@ -83,7 +83,7 @@
             //increasing date by 1
             today.setDate(today.getDate()+1);
             var dd = String(today.getDate()).padStart(2, '0');
-            var mm = String(today.getMonth()).padStart(2, '0'); //January is 0!
+            var mm = String(today.getMonth() ).padStart(2, '0'); //January is 0!
             var yyyy = today.getFullYear();
             today = mm + '/' + dd + '/' + yyyy; 
             goUrl = 'http://' + window.location.hostname + ':8000' + '/appointment/view/' + today;
@@ -133,6 +133,13 @@
         <div class="layoutdesign">
           <div class="row">
                 <div></div>
+                <div>00:00</div>
+                <div>01:00</div>
+                <div>02:00</div>
+                <div>03:00</div>
+                <div>04:00</div>
+                <div>05:00</div>
+                <div>06:00</div>
                 <div>07:00</div>
                 <div>08:00</div>
                 <div>09:00</div>
@@ -173,6 +180,13 @@
                 <div></div>
                 <div></div>
                 <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
           </div>
           <div class="row">
                 <div>Cg. Ainul</div>
@@ -194,9 +208,23 @@
                 <div></div>
                 <div></div>
                 <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
           </div>
           <div class="row">
                 <div>BILIK 3R</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
