@@ -39,10 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #apps
     'appointment',
+    'accounts',
     #template_filters
+    'django.contrib.humanize',
     'mathfilters',
     #external modules
     'tempus_dominus',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

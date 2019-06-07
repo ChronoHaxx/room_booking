@@ -11,8 +11,9 @@ To do :
   - [X] Add widget to choose day, forward and back a day
   - [ ] adjust the time to be on working hours 
     -cannot be done due to js script copied is coded exclusively for 24 hour measurement
-  - [ ] appointment added needed to get approval of Administrator to be displayed on table
+  - [X] appointment added needed to get approval of Administrator to be displayed on table
     - this includes some form of inbox and outbox for request etc
+    - still incomplete because it only blocks the user from changing values from the frontend side
   - [X] add current date display 
 
 -Forms validation of new appointment
@@ -20,8 +21,9 @@ To do :
 
 -User auth
   - [ ] groups of students, teachers, staff 
-  - [ ] this includes the forms to require high priveleged group to book 
-  - [ ] use profiles.
+  - [ ] this includes the forms to only allow high priveleged group to book 
+  - [ ] users profiles.
+  
 
 -Design
   - [ ] retain original table view, too lazy to redesign.

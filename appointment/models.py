@@ -6,6 +6,7 @@ class Appointment(models.Model):
     start_time = models.DateTimeField(unique=True)
     end_time = models.DateTimeField(unique=True)
     client = models.ForeignKey(User, on_delete=models.CASCADE)
+    approval = models.BooleanField(default=False)
 
     FAZIL = '1'
     AINUL = '2'

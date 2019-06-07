@@ -37,7 +37,7 @@ class AppointmentForm(forms.ModelForm):
 
     class Meta:
         model = Appointment
-        fields = ('objective', 'start_time', 'end_time', 'client', 'rooom')
+        fields = ('objective', 'start_time', 'end_time', 'rooom')
         widgets = {
             'start_time': DateTimePicker(
                 options={
@@ -75,18 +75,3 @@ class AppointmentForm(forms.ModelForm):
                 'max_length': _("The objective is too long."),
             },
         }
-
-#example for tempus dominus widget
-class MyForm(forms.Form):
-    datetime_field = forms.DateTimeField(
-        widget=DateTimePicker(
-            options={
-                'useCurrent': True,
-                'collapse': False,
-            },
-            attrs={
-                'append': 'fa fa-calendar',
-                'icon_toggle': True,
-            }
-        ),
-    )

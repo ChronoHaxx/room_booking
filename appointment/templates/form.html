@@ -15,7 +15,8 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <form method="post" action="{% url 'appointment-new' %}">
+          <H3>User : {{ request.user.username }}</H3>
+          <form method="post" >
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="OK">
