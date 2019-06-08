@@ -74,7 +74,7 @@ TEMPLATES = [
             ],
                     'libraries':{
             'index': 'appointment.templatetags.index',
-
+            'has_group': 'appointment.templatetags.has_group',
             }
         },
     },

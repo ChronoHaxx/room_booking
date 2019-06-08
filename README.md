@@ -15,6 +15,7 @@ To do :
     - this includes some form of inbox and outbox for request etc
     - still incomplete because it only blocks the user from changing values from the frontend side
   - [X] add current date display 
+  - [ ] bigger text field for objective
 
 -Forms validation of new appointment
   - [ ] so it doesnt allow user to pick date that already booked and approved
@@ -26,6 +27,8 @@ To do :
   
 
 -Design
+  - [ ] intuitive field with widget and ordered stuff in appointment-admin
+  - [X] simple navigation stuff
   - [ ] retain original table view, too lazy to redesign.
   - [ ] minimalistic modern style 
   - [ ] responsive 

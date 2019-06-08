@@ -1,5 +1,6 @@
 {% load mathfilters %}
-{% load index %}}
+{% load index %}
+{% load has_group %}
 {% load static %}
 <!doctype html>
 <html lang="en">
@@ -38,15 +39,23 @@
           var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
           var yyyy = today.getFullYear();
           today = mm + '/' + dd + '/' + yyyy;
+          //var baseurl =  window.location.hostname
+          var baseurl = 'http://' + window.location.hostname + ':8000'
 
           $('#querydate').submit( function() {             
-               goUrl = 'http://' + window.location.hostname + ':8000' + '/appointment/view/' + $('#datepicker').val();
+            goUrl = baseurl + '/appointment/view/' + $('#datepicker').val();
+            location.href = goUrl;
+            return false;  // Prevent the default form behaviour
+        });
+
+          $('#querydate').submit( function() {             
+               goUrl = baseurl + '/appointment/view/' + $('#datepicker').val();
                location.href = goUrl;
                return false;  // Prevent the default form behaviour
           });
 
           $('#today').submit( function() {                        
-            goUrl = 'http://' + window.location.hostname + ':8000' + '/appointment/view/' + today;
+            goUrl = baseurl + '/appointment/view/' + today;
             location.href = goUrl;
             return false;  // Prevent the default form behaviour
           });
@@ -66,7 +75,7 @@
             var mm = String(today.getMonth() ).padStart(2, '0'); //January is 0!
             var yyyy = today.getFullYear();
             today = mm + '/' + dd + '/' + yyyy; 
-            goUrl = 'http://' + window.location.hostname + ':8000' + '/appointment/view/' + today;
+            goUrl = baseurl + '/appointment/view/' + today;
             location.href = goUrl;
             return false;  // Prevent the default form behaviour
           });
@@ -86,7 +95,7 @@
             var mm = String(today.getMonth() ).padStart(2, '0'); //January is 0!
             var yyyy = today.getFullYear();
             today = mm + '/' + dd + '/' + yyyy; 
-            goUrl = 'http://' + window.location.hostname + ':8000' + '/appointment/view/' + today;
+            goUrl = baseurl + '/appointment/view/' + today;
             location.href = goUrl;
             return false;  // Prevent the default form behaviour
           });
@@ -98,7 +107,7 @@
     <div class="timetable">
         <table class="button-options">
             <tr>
-                <th></th>
+                <th><a href="{% url 'index' %}"></a>Homepage</th>
                 <th id="addFilm"><a href="{% url 'appointment-new' %}">Add Appointment</a></th>
                 <th>
                   <h5 id="date_display"> </h5></th> 
@@ -127,7 +136,11 @@
                 <th><form id="before"><input type="submit" value="Go a day before"></form></th>
                 <th><form id="today"><input type="submit" value="Go to Today"></form></th>
                 <th><form id="after"><input type="submit" value="Go a day after "></form></th>
-                <th></th>
+                <th><a href="{% url 'appointment-list' %}">My Appointments</a>
+                {% if request.user|has_group:"Counselour" %}
+                  | <a href="{% url 'appointment-admin' %}">Admin</a>
+                {% endif %}
+                </th>
             </tr>
         </table>
         <div class="layoutdesign">
